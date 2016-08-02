@@ -16,20 +16,29 @@ class UpdateMenusTable extends Migration
             [
                 'id'        => 3,
                 'position'  => 0,
-                'name'      => 'Provider',
-                'title'     => 'Provider',
-                'menu_type' => 1,
+                'name'      => 'BaseInformation',
+                'title'     => 'Base Information',
+                'menu_type' => 2,
                 'icon'      => 'fa-database',
                 'parent_id' => NULL,
             ],
             [
                 'id'        => 4,
+                'position'  => 0,
+                'name'      => 'Provider',
+                'title'     => 'Provider',
+                'menu_type' => 1,
+                'icon'      => 'fa-database',
+                'parent_id' => 3,
+            ],
+            [
+                'id'        => 5,
                 'position'  => 1,
                 'name'      => 'Category',
                 'title'     => 'Category',
                 'menu_type' => 1,
                 'icon'      => 'fa-database',
-                'parent_id' => NULL,
+                'parent_id' => 3,
             ],
 
         ]);

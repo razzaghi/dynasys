@@ -36,10 +36,10 @@ class CategoryController extends Controller {
 	 */
 	public function create()
 	{
-	    $provider = Provider::lists("id", "id")->prepend('Please select', '');
+	    $categoryList = Category::lists("name", "id")->prepend('Please select', '');
 
 	    
-	    return view('admin.category.create', compact("provider"));
+	    return view('admin.category.create', compact("categoryList"));
 	}
 
 	/**
@@ -64,10 +64,10 @@ class CategoryController extends Controller {
 	public function edit($id)
 	{
 		$category = Category::find($id);
-	    $provider = Provider::lists("id", "id")->prepend('Please select', '');
+	    $categoryId = Category::lists("id", "id")->prepend('Please select', '');
 
 	    
-		return view('admin.category.edit', compact('category', "provider"));
+		return view('admin.category.edit', compact('category', "categoryId"));
 	}
 
 	/**
