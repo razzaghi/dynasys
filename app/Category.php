@@ -24,7 +24,7 @@ class Category extends Model {
     protected $fillable = [
           'Name',
           'Description',
-          'provider_id'
+          'parent_id'
     ];
     
 
@@ -35,9 +35,9 @@ class Category extends Model {
         Category::observe(new UserActionsObserver);
     }
     
-    public function provider()
+    public function parent()
     {
-        return $this->hasOne('App\Provider', 'id', 'provider_id');
+        return $this->hasMany('App\Category', 'id', 'parent_id');
     }
 
 

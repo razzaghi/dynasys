@@ -30,11 +30,10 @@
         {!! Form::textarea('Description', old('Description'), array('class'=>'form-control')) !!}
         
     </div>
-    {{$categoryList}}
 </div><div class="form-group">
-    {!! Form::label('category_id', 'Category', array('class'=>'col-sm-2 control-label')) !!}
+    {!! Form::label('parent_id', 'Parent', array('class'=>'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
-        {!! Form::select('category_id', $categoryList, old('category_id'), array('class'=>'form-control')) !!}
+        {!! Form::select('parent_id', $categoryList, old('parent_id'), array('class'=>'form-control')) !!}
         
     </div>
 </div>

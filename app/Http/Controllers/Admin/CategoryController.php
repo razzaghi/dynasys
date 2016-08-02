@@ -24,7 +24,7 @@ class CategoryController extends Controller {
 	 */
 	public function index(Request $request)
     {
-        $category = Category::with("provider")->get();
+        $category = Category::with("parent")->get();
 
 		return view('admin.category.index', compact('category'));
 	}
@@ -64,10 +64,10 @@ class CategoryController extends Controller {
 	public function edit($id)
 	{
 		$category = Category::find($id);
-	    $categoryId = Category::lists("id", "id")->prepend('Please select', '');
+	    $parentList = Category::lists("Name", "id")->prepend('Please select', '');
 
 	    
-		return view('admin.category.edit', compact('category', "categoryId"));
+		return view('admin.category.edit', compact('category', "parentList"));
 	}
 
 	/**

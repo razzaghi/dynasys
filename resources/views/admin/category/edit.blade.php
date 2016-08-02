@@ -31,9 +31,9 @@
         
     </div>
 </div><div class="form-group">
-    {!! Form::label('provider_id', 'Category', array('class'=>'col-sm-2 control-label')) !!}
+    {!! Form::label('parent_id', 'Parent', array('class'=>'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
-        {!! Form::select('provider_id', $provider, old('provider_id',$category->provider_id), array('class'=>'form-control')) !!}
+        {!! Form::select('parent_id', $parentList, old('parent_id',$category->parent_id), array('class'=>'form-control')) !!}
         
     </div>
 </div>
