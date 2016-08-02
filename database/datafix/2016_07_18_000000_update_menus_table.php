@@ -40,7 +40,15 @@ class UpdateMenusTable extends Migration
                 'icon'      => 'fa-database',
                 'parent_id' => 3,
             ],
-
+            [
+                'id'        => 6,
+                'position'  => 2,
+                'name'      => 'Service',
+                'title'     => 'Service',
+                'menu_type' => 1,
+                'icon'      => 'fa-database',
+                'parent_id' => 3,
+            ]
         ]);
     }
 }
