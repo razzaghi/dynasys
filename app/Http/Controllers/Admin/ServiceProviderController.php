@@ -14,93 +14,93 @@ use App\Service;
 use App\Provider;
 
 
-class ServiceProviderController extends Controller {
+class ServiceProviderController extends Controller
+{
 
-	/**
-	 * Display a listing of serviceprovider
-	 *
+    /**
+     * Display a listing of serviceprovider
+     *
      * @param Request $request
      *
      * @return \Illuminate\View\View
-	 */
-	public function index(Request $request)
+     */
+    public function index(Request $request)
     {
         $serviceprovider = ServiceProvider::with("service")->with("provider")->get();
 
-		return view('admin.serviceprovider.index', compact('serviceprovider'));
-	}
+        return view('admin.serviceprovider.index', compact('serviceprovider'));
+    }
 
-	/**
-	 * Show the form for creating a new serviceprovider
-	 *
+    /**
+     * Show the form for creating a new serviceprovider
+     *
      * @return \Illuminate\View\View
-	 */
-	public function create()
-	{
-	    $service = Service::lists("Name", "id")->prepend('Please select', '');
-$provider = Provider::lists("Name", "id")->prepend('Please select', '');
+     */
+    public function create()
+    {
+        $service = Service::lists("Name", "id")->prepend('Please select', '');
+        $provider = Provider::lists("Name", "id")->prepend('Please select', '');
 
-	    
-	    return view('admin.serviceprovider.create', compact("service", "provider"));
-	}
 
-	/**
-	 * Store a newly created serviceprovider in storage.
-	 *
+        return view('admin.serviceprovider.create', compact("service", "provider"));
+    }
+
+    /**
+     * Store a newly created serviceprovider in storage.
+     *
      * @param CreateServiceProviderRequest|Request $request
-	 */
-	public function store(CreateServiceProviderRequest $request)
-	{
-	    
-		ServiceProvider::create($request->all());
+     */
+    public function store(CreateServiceProviderRequest $request)
+    {
 
-		return redirect()->route('admin.serviceprovider.index');
-	}
+        ServiceProvider::create($request->all());
 
-	/**
-	 * Show the form for editing the specified serviceprovider.
-	 *
-	 * @param  int  $id
+        return redirect()->route('admin.serviceprovider.index');
+    }
+
+    /**
+     * Show the form for editing the specified serviceprovider.
+     *
+     * @param  int $id
      * @return \Illuminate\View\View
-	 */
-	public function edit($id)
-	{
-		$serviceprovider = ServiceProvider::find($id);
-	    $service = Service::lists("Name", "id")->prepend('Please select', '');
-$provider = Provider::lists("Name", "id")->prepend('Please select', '');
+     */
+    public function edit($id)
+    {
+        $serviceprovider = ServiceProvider::find($id);
+        $service = Service::lists("Name", "id")->prepend('Please select', '');
+        $provider = Provider::lists("Name", "id")->prepend('Please select', '');
 
-	    
-		return view('admin.serviceprovider.edit', compact('serviceprovider', "service", "provider"));
-	}
 
-	/**
-	 * Update the specified serviceprovider in storage.
+        return view('admin.serviceprovider.edit', compact('serviceprovider', "service", "provider"));
+    }
+
+    /**
+     * Update the specified serviceprovider in storage.
      * @param UpdateServiceProviderRequest|Request $request
      *
-	 * @param  int  $id
-	 */
-	public function update($id, UpdateServiceProviderRequest $request)
-	{
-		$serviceprovider = ServiceProvider::findOrFail($id);
+     * @param  int $id
+     */
+    public function update($id, UpdateServiceProviderRequest $request)
+    {
+        $serviceprovider = ServiceProvider::findOrFail($id);
 
-        
 
-		$serviceprovider->update($request->all());
+        $serviceprovider->update($request->all());
 
-		return redirect()->route('admin.serviceprovider.index');
-	}
+        return redirect()->route('admin.serviceprovider.index');
+    }
 
-	/**
-	 * Remove the specified serviceprovider from storage.
-	 *
-	 * @param  int  $id
-	 */
-	public function destroy($id)
-	{
-		ServiceProvider::destroy($id);
+    /**
+     * Remove the specified serviceprovider from storage.
+     *
+     * @param  int $id
+     */
+    public function destroy($id)
+    {
+        ServiceProvider::destroy($id);
 
-		return redirect()->route('admin.serviceprovider.index');
-	}
+        return redirect()->route('admin.serviceprovider.index');
+    }
 
     /**
      * Mass delete function from index page

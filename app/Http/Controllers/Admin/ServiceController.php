@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Provider;
+use App\ServiceProvider;
 use Redirect;
 use Schema;
 use App\Service;
@@ -37,9 +39,9 @@ class ServiceController extends Controller {
 	public function create()
 	{
 	    $category = Category::lists("Name", "id")->prepend('Please select', '');
-
+        $provider = Provider::Lists("Name", "id")->prepend('Please select', '');
 	    
-	    return view('admin.service.create', compact("category"));
+	    return view('admin.service.create', compact("category","provider"));
 	}
 
 	/**
@@ -50,7 +52,8 @@ class ServiceController extends Controller {
 	public function store(CreateServiceRequest $request)
 	{
 	    $request = $this->saveFiles($request);
-		Service::create($request->all());
+        $service = Service::create($request->all());
+        ServiceProvider::create(['service_id'=>$service->id,'provider_id'=>$request->all()['provider_id']]);
 
 		return redirect()->route('admin.service.index');
 	}
@@ -65,9 +68,10 @@ class ServiceController extends Controller {
 	{
 		$service = Service::find($id);
 	    $category = Category::lists("Name", "id")->prepend('Please select', '');
+        $provider = Provider::lists("Name", "id")->prepend('Please select', '');
 
 	    
-		return view('admin.service.edit', compact('service', "category"));
+		return view('admin.service.edit', compact('service', "category","provider"));
 	}
 
 	/**
