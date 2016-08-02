@@ -21,7 +21,7 @@
 <div class="form-group">
     {!! Form::label('service_id', 'Service', array('class'=>'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
-        {!! Form::select('service_id', $service, old('service_id'), array('class'=>'form-control')) !!}
+        {!! Form::select('service_id', $service, old('service_id'), array('class'=>'form-control service')) !!}
         
     </div>
 </div><div class="form-group">
@@ -47,3 +47,13 @@
 {!! Form::close() !!}
 
 @endsection
+
+@section('javascript')
+    <script>
+        $(document).ready(function () {
+            $('.service').change(function () {
+                console.log($(this).val());
+            });
+        });
+    </script>
+@stop
