@@ -17,9 +17,18 @@
     {{--<link rel="stylesheet" href="{{ url('quickadmin/css') }}/bootstrap-rtl.min.css"/>--}}
     <link rel="stylesheet" href="{{ url('quickadmin/css') }}/components.css"/>
     {{--<link rel="stylesheet" href="{{ url('quickadmin/css') }}/components-rtl.css"/>--}}
-    <link rel="stylesheet" href="{{ url('quickadmin/css') }}/quickadmin-layout.css"/>
+    <link rel="stylesheet"
+          href="{{ url('quickadmin/') }}/pfont/WebMitra.css"/>
+
+    <link rel="stylesheet"
+          href="{{ url('quickadmin/css') }}/style.css"/>
+
+    <link rel="stylesheet" href="{{ url('quickadmin/css') }}/quickadmin-layout-rtl.css"/>
     {{--<link rel="stylesheet" href="{{ url('quickadmin/css') }}/quickadmin-layout-rtl.css"/>--}}
     <link rel="stylesheet" href="{{ url('quickadmin/css') }}/quickadmin-theme-default.css"/>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-rtl/3.2.0-rc2/css/bootstrap-rtl.min.css"/>
+
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/jquery-ui-timepicker-addon.min.css"/>

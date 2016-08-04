@@ -19,7 +19,7 @@
 {!! Form::open(array('route' => 'admin.provider.store', 'id' => 'form-with-validation', 'class' => 'form-horizontal')) !!}
 
 <div class="form-group">
-    {!! Form::label('Name', 'Name*', array('class'=>'col-sm-2 control-label')) !!}
+    {!! Form::label('Name', 'نام *', array('class'=>'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
         {!! Form::text('Name', old('Name'), array('class'=>'form-control')) !!}
         

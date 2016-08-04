@@ -8,7 +8,7 @@ use Laraveldaily\Quickadmin\Observers\UserActionsObserver;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Field extends Model {
+class ManageService extends Model {
 
     use SoftDeletes;
 
@@ -19,14 +19,11 @@ class Field extends Model {
     */
     protected $dates = ['deleted_at'];
 
-    protected $table    = 'field';
+    protected $table    = 'manageservice';
     
     protected $fillable = [
-          'Name',
-          'category_id',
-          'Description',
-          'IsInFiltering',
-          'IsRequirement'
+          'service_id',
+          'field_id'
     ];
     
 
@@ -34,12 +31,18 @@ class Field extends Model {
     {
         parent::boot();
 
-        Field::observe(new UserActionsObserver);
+        ManageService::observe(new UserActionsObserver);
     }
     
-    public function category()
+    public function service()
     {
-        return $this->hasOne('App\Category', 'id', 'category_id');
+        return $this->hasOne('App\Service', 'id', 'service_id');
+    }
+
+
+    public function field()
+    {
+        return $this->hasOne('App\Field', 'id', 'field_id');
     }
 
 

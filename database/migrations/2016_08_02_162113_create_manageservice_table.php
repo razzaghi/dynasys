@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Eloquent\Model;
 
-class CreateFieldTable extends Migration {
+class CreateManageServiceTable extends Migration {
 
     /**
      * Run the migrations.
@@ -14,13 +14,10 @@ class CreateFieldTable extends Migration {
     public function up()
     {
         Model::unguard();
-        Schema::create('field',function(Blueprint $table){
+        Schema::create('manageservice',function(Blueprint $table){
             $table->increments("id");
-            $table->string("Name");
-            $table->integer("category_id")->references("id")->on("category");
-            $table->text("Description")->nullable();
-            $table->tinyInteger("IsInFiltering")->default(0)->nullable();
-            $table->tinyInteger("IsRequirement")->default(0)->nullable();
+            $table->integer("service_id")->references("id")->on("service");
+            $table->integer("field_id")->references("id")->on("field");
             $table->timestamps();
             $table->softDeletes();
         });
@@ -33,7 +30,7 @@ class CreateFieldTable extends Migration {
      */
     public function down()
     {
-        Schema::drop('field');
+        Schema::drop('manageservice');
     }
 
 }

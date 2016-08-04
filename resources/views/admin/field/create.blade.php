@@ -19,29 +19,39 @@
 {!! Form::open(array('route' => 'admin.field.store', 'id' => 'form-with-validation', 'class' => 'form-horizontal')) !!}
 
 <div class="form-group">
-    {!! Form::label('Name', 'Name*', array('class'=>'col-sm-2 control-label')) !!}
+    {!! Form::label('Name', 'نام *', array('class'=>'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
         {!! Form::text('Name', old('Name'), array('class'=>'form-control')) !!}
         
     </div>
 </div><div class="form-group">
-    {!! Form::label('category_id', 'Category*', array('class'=>'col-sm-2 control-label')) !!}
+    {!! Form::label('category_id', 'دسته *', array('class'=>'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
         {!! Form::select('category_id', $category, old('category_id'), array('class'=>'form-control')) !!}
         
     </div>
 </div><div class="form-group">
-    {!! Form::label('Description', 'Description', array('class'=>'col-sm-2 control-label')) !!}
+    {!! Form::label('Description', 'توضیحات', array('class'=>'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
         {!! Form::textarea('Description', old('Description'), array('class'=>'form-control')) !!}
         
     </div>
-</div><div class="form-group">
-    {!! Form::label('IsInFiltering', 'IsInFiltering', array('class'=>'col-sm-2 control-label')) !!}
+</div>
+<div class="form-group">
+    {!! Form::label('IsInFiltering', 'در فیلترینگ بیاید؟', array('class'=>'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
         {!! Form::hidden('IsInFiltering','') !!}
         {!! Form::checkbox('IsInFiltering', 1, false) !!}
         
+    </div>
+</div>
+
+<div class="form-group">
+    {!! Form::label('IsRequirement', 'لازم است کاربر وارد نماید؟', array('class'=>'col-sm-2 control-label')) !!}
+    <div class="col-sm-10">
+        {!! Form::hidden('IsRequirement','') !!}
+        {!! Form::checkbox('IsRequirement', 1, false) !!}
+
     </div>
 </div>
 

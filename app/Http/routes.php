@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('admin/getServiceFields/{id}', [
+    'as' => 'getServiceFields', 'uses' => 'Admin\ManageServiceController@getServiceFields'
+]);

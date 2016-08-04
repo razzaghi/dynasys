@@ -25,7 +25,8 @@ class Service extends Model {
           'Name',
           'Image',
           'Description',
-          'category_id'
+          'category_id',
+          'provider_id'
     ];
     
 
@@ -39,6 +40,11 @@ class Service extends Model {
     public function category()
     {
         return $this->hasOne('App\Category', 'id', 'category_id');
+    }
+
+    public function provider()
+    {
+        return $this->hasOne('App\Provider', 'id', 'provider_id');
     }
 
 

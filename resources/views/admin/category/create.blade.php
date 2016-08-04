@@ -19,19 +19,19 @@
 {!! Form::open(array('route' => 'admin.category.store', 'id' => 'form-with-validation', 'class' => 'form-horizontal')) !!}
 
 <div class="form-group">
-    {!! Form::label('Name', 'Name*', array('class'=>'col-sm-2 control-label')) !!}
+    {!! Form::label('Name', 'نام *', array('class'=>'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
         {!! Form::text('Name', old('Name'), array('class'=>'form-control')) !!}
         
     </div>
 </div><div class="form-group">
-    {!! Form::label('Description', 'Description', array('class'=>'col-sm-2 control-label')) !!}
+    {!! Form::label('Description', 'توضیحات', array('class'=>'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
         {!! Form::textarea('Description', old('Description'), array('class'=>'form-control')) !!}
         
     </div>
 </div><div class="form-group">
-    {!! Form::label('parent_id', 'Parent', array('class'=>'col-sm-2 control-label')) !!}
+    {!! Form::label('parent_id', 'پدر دسته', array('class'=>'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
         {!! Form::select('parent_id', $categoryList, old('parent_id'), array('class'=>'form-control')) !!}
         

@@ -19,6 +19,15 @@
     {!! Form::open(array('files' => true, 'route' => 'admin.service.store', 'id' => 'form-with-validation', 'class' => 'form-horizontal')) !!}
 
     <div class="form-group">
+        {!! Form::label('category_id', 'Category', array('class'=>'col-sm-2 control-label')) !!}
+        <div class="col-sm-10">
+            {!! Form::select('category_id', $category, old('category_id'), array('class'=>'form-control')) !!}
+
+        </div>
+    </div>
+
+
+    <div class="form-group">
         {!! Form::label('Name', 'Name', array('class'=>'col-sm-2 control-label')) !!}
         <div class="col-sm-10">
             {!! Form::text('Name', old('Name'), array('class'=>'form-control')) !!}
@@ -38,13 +47,6 @@
         {!! Form::label('Description', 'Description', array('class'=>'col-sm-2 control-label')) !!}
         <div class="col-sm-10">
             {!! Form::textarea('Description', old('Description'), array('class'=>'form-control')) !!}
-        </div>
-    </div>
-    <div class="form-group">
-        {!! Form::label('category_id', 'Category', array('class'=>'col-sm-2 control-label')) !!}
-        <div class="col-sm-10">
-            {!! Form::select('category_id', $category, old('category_id'), array('class'=>'form-control')) !!}
-
         </div>
     </div>
     <div class="form-group">

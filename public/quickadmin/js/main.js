@@ -95,4 +95,25 @@ $(document).ready(function () {
         }
     });
 
+
+    $("#category_id").on("change", function () {
+        var id = $(this).val();
+        $.get("/admin/getServiceFields/" + id, function (res) {
+            $(".serviceFields").html("");
+
+            $.each(res, function (i,obj) {
+                $(".serviceFields").append('<div class="form-group"> \
+                <div><label for="field_id" class="col-sm-2 control-label">' + obj.Name + '</label></div> \
+            <div class="col-sm-8"> \
+                <input class="form-control" name="fields[' + obj.id + ']" type="text" id="' + obj.id + '"> \
+                </div>\
+                </div>');
+
+            });
+
+
+        })
+
+    })
+
 });

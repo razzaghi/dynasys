@@ -19,7 +19,7 @@
 {!! Form::model($provider, array('class' => 'form-horizontal', 'id' => 'form-with-validation', 'method' => 'PATCH', 'route' => array('admin.provider.update', $provider->id))) !!}
 
 <div class="form-group">
-    {!! Form::label('Name', 'Name*', array('class'=>'col-sm-2 control-label')) !!}
+    {!! Form::label('Name', 'نام *', array('class'=>'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
         {!! Form::text('Name', old('Name',$provider->Name), array('class'=>'form-control')) !!}
         
